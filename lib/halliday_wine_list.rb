@@ -1,5 +1,5 @@
-require "halliday_wine_list/version"
 
 module HallidayWineList
   # Your code goes here...
 end
+# move this module into environment?
