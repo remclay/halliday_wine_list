@@ -18,18 +18,22 @@ class HallidayWineList::CLI
 
   def choose_category
     puts "Please choose a category to view selected wines (1-6) or type exit."
-    input = gets.strip.downcase
+    @input = gets.strip.downcase
 
-    if input.to_i > 0
-      choice = @categories[input.to_i - 1]
-      puts @categories[input.to_i - 1].name
+    if @input.to_i > 0 && @input.to_i <= @categories.count
+      #refactor to use #choice
+      puts @categories[choice].name
       list_wines
-    elsif input == "exit"
+    elsif @input == "exit"
       goodbye
     else
       puts "Invalid input."
       choose_category
     end
+  end
+
+  def choice
+    @input.to_i - 1
   end
 
   def goodbye
