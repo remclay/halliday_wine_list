@@ -16,13 +16,13 @@ class HallidayWineList::Category
 
   def self.scrape_categories
     # On main site, find categories, extract name and url, instantiate categories => array of categories
-    # Will ultimately create into scraper class
+    # Will ultimately create scraper class
     categories = []
     doc = Nokogiri::HTML(open("https://www.winecompanion.com.au/wines/james-hallidays-top-100-wines-of-2017"))
-    doc.css("ul.listing-items li").each do |item|
+    doc.css("div.clearfix.bestofbest ul.listing-items h3.sub-title").each do |item|
       c = self.new
-      c.name = item.css(".bestofbest-item h3").text
-      #c.url = item.css(".bestofbest-item h3 a").attr("href").value
+      c.name = item.css("a").text
+      c.url = item.css("a").attr("href").value
       categories << c
     end
   end
