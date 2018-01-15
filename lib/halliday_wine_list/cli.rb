@@ -22,7 +22,7 @@ class HallidayWineList::CLI
 
     if @input.to_i > 0 && @input.to_i <= @categories.count
       #refactor to use #choice
-      puts @categories[choice].name
+      puts @categories[users_choice].name
       list_wines
     elsif @input == "exit"
       goodbye
@@ -32,8 +32,9 @@ class HallidayWineList::CLI
     end
   end
 
-  def choice
-    @input.to_i - 1
+  def users_choice
+    i = @input.to_i - 1
+    #binding.pry
   end
 
   def goodbye

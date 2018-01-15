@@ -3,4 +3,5 @@
 require "bundler/setup"
 require_relative '../config/environment'
 
-HallidayWineList::CLI.new.call
+Testa = HallidayWineList::CLI.new
+Testa.call
