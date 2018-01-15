@@ -19,6 +19,11 @@ class HallidayWineList::Category
     # Will ultimately create into scraper class
     categories = []
     doc = Nokogiri::HTML(open("https://www.winecompanion.com.au/wines/james-hallidays-top-100-wines-of-2017"))
-
+    doc.css("ul.listing-items li").each do |item|
+      c = self.new
+      c.name = item.css(".bestofbest-item h3").text
+      #c.url = item.css(".bestofbest-item h3 a").attr("href").value
+      categories << c
+    end
   end
 end
