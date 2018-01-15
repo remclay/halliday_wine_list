@@ -9,7 +9,7 @@ class HallidayWineList::CLI
   def list_categories
     puts "--------------------------------------------"
     puts "2017 Categories"
-    @categories = HallidayWineList::Category.all
+    @categories = HallidayWineList::Category.categories
     @categories.each.with_index(1) do |c, i|
       puts "#{i} - #{c.name}"
     end
@@ -39,7 +39,7 @@ class HallidayWineList::CLI
 
   def list_wines
     puts "--------------------------------------------"
-    @wines = HallidayWineList::Wine.all
+    @wines = HallidayWineList::Wine.wines
     @wines.each.with_index(1) do |w, i|
       puts "#{i} #{w.winery} - #{w.variety} - #{w.location}."
     end

@@ -2,7 +2,7 @@ class HallidayWineList::Category
 
   attr_accessor :name, :url
 
-  def self.all
+  def self.categories
     #I should return all of the categories
     #puts "1 - Best Red Wine under $25 (20 wines selected)"
     #puts "2 - Best White Wine under $20 (20 wines selected)"
@@ -11,17 +11,14 @@ class HallidayWineList::Category
     #puts "5 - Best Champagne (12 wines selected)"
     #puts "6 - Best Sparkling (8 wines selected)"
     #puts "--------------------------------------------"
+    self.scrape_categories
+  end
 
-
-  category_1 = self.new
-  category_1.name = "Best Red Wine under $25"
-  category_1.url = "https://www.winecompanion.com.au/wines/2017-best-red-wines-under-25"
-
-  category_2 = self.new
-  category_2.name = "Best White Wine under $20"
-  category_2.url = "https://www.winecompanion.com.au/wines/2017-best-white-wines-under-20"
-
-  [category_1, category_2]
+  def self.scrape_categories
+    # On main site, find categories, extract name and url, instantiate categories => array of categories
+    # Will ultimately create into scraper class
+    categories = []
+    doc = Nokogiri::HTML(open("https://www.winecompanion.com.au/wines/james-hallidays-top-100-wines-of-2017"))
 
   end
 end

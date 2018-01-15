@@ -2,7 +2,7 @@ class HallidayWineList::Wine
 
   attr_accessor :winery, :variety, :location
 
-  def self.all
+  def self.wines
   wine_1 = self.new
   wine_1.winery = "Angove Family Winemakers"
   wine_1.variety = "Grenache Shiraz Mourvedre"
@@ -16,5 +16,5 @@ class HallidayWineList::Wine
   [wine_1, wine_2]
 
   end
-  
+
 end
