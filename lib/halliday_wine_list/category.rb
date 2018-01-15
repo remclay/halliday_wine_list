@@ -10,7 +10,7 @@ class HallidayWineList::Category
     puts "4 - Best White Wine over $20 (20 wines selected)"
     puts "5 - Best Champagne (12 wines selected)"
     puts "6 - Best Sparkling (8 wines selected)"
-    puts "--------------------------------------------"  
+    puts "--------------------------------------------"
   end
 
 end
