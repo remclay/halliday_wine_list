@@ -9,7 +9,7 @@ class HallidayWineList::CLI
   def list_categories
     puts "--------------------------------------------"
     puts "2017 Categories"
-    @categories = HallidayWineList::Category.categories
+    @categories = HallidayWineList::Category.all
     @categories.each.with_index(1) do |c, i|
       puts "#{i} - #{c.name}"
     end
@@ -21,7 +21,9 @@ class HallidayWineList::CLI
     input = gets.strip.downcase
 
     if input.to_i > 0
+      choice = @categories[input.to_i - 1]
       puts @categories[input.to_i - 1].name
+      list_wines
     elsif input == "exit"
       goodbye
     else
@@ -33,6 +35,14 @@ class HallidayWineList::CLI
   def goodbye
     puts "Goodbye. Please visit again soon."
     exit
+  end
+
+  def list_wines
+    puts "--------------------------------------------"
+    @wines = HallidayWineList::Wine.all
+    @wines.each.with_index(1) do |w, i|
+      puts "#{i} #{w.winery} - #{w.variety} - #{w.location}."
+    end
   end
 
 end

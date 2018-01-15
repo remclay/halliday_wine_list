@@ -2,7 +2,7 @@ class HallidayWineList::Category
 
   attr_accessor :name, :url
 
-  def self.categories
+  def self.all
     #I should return all of the categories
     #puts "1 - Best Red Wine under $25 (20 wines selected)"
     #puts "2 - Best White Wine under $20 (20 wines selected)"
@@ -22,6 +22,6 @@ class HallidayWineList::Category
   category_2.url = "https://www.winecompanion.com.au/wines/2017-best-white-wines-under-20"
 
   [category_1, category_2]
-  
+
   end
 end
