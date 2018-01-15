@@ -9,34 +9,30 @@ class HallidayWineList::CLI
   def list_categories
     puts "--------------------------------------------"
     puts "2017 Categories"
-    HallidayWineList::Category.categories
+    @categories = HallidayWineList::Category.categories
+    @categories.each.with_index(1) do |c, i|
+      puts "#{i} - #{c.name}"
+    end
     choose_category
   end
 
   def choose_category
     puts "Please choose a category to view selected wines (1-6) or type exit."
-    input = gets.strip
-    case input
-    when "1"
-      puts "Showing Selected Red Wines under $25"
-    when "2"
-      puts "Showing Selected White Wines under $20"
-    when "3"
-      puts "Showing Selected Red Wine over $25"
-    when "4"
-      puts "Showing Selected White Wine over $20"
-    when "5"
-      puts "Showing Selected Champagne"
-    when "6"
-      puts "Showing Selected Sparkling"
-    when "exit"
-      puts "Goodbye. Please visit again soon."
-      exit
+    input = gets.strip.downcase
+
+    if input.to_i > 0
+      puts @categories[input.to_i - 1].name
+    elsif input == "exit"
+      goodbye
     else
       puts "Invalid input."
       choose_category
+    end
   end
-end
 
+  def goodbye
+    puts "Goodbye. Please visit again soon."
+    exit
+  end
 
 end
