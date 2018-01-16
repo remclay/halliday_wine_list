@@ -14,7 +14,8 @@ class HallidayWineList::CLI
     puts "Please choose a category (1-6) to view wines selected within that category or type exit."
     @input = gets.strip.downcase
     #if @input.to_i > 0 && @input.to_i <= @categories.count
-    if users_choice > 1 && users_choice < (@categories.count - 1)
+    @categories = HallidayWineList::Category.all_categories
+    if users_choice >= 0 && users_choice < (@categories.count - 1)
       puts "Showing: #{@categories[users_choice].name}."
       puts "--------------------------------------------"
       reveal_wines
@@ -45,7 +46,7 @@ class HallidayWineList::CLI
   end
 
   def list_categories
-    HallidayWineList::Category.all_categories
+    HallidayWineList::Category.print_categories
   end
   
   def collect_wines
@@ -53,7 +54,6 @@ class HallidayWineList::CLI
   end
 
   def list_wines
-    puts "--------------------------------------------"
     HallidayWineList::Wine.all_wines
   end
 end

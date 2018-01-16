@@ -13,7 +13,7 @@ class HallidayWineList::Scraper
   #WINES
   def scrape_wines
     # improve call to this method from wine class (remove instantiation)
-    category_url = HallidayWineList::Category.categories[Testa.users_choice].url
+    category_url = HallidayWineList::Category.all_categories[Testa.users_choice].url
     url = "https://www.winecompanion.com.au" + "#{category_url}"
     doc = Nokogiri::HTML(open(url))
     doc.css("div.clearfix ul.listing-items div.info").each do |item|
