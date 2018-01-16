@@ -44,10 +44,7 @@ class HallidayWineList::CLI
 
   def list_wines
     puts "--------------------------------------------"
-    @wines = HallidayWineList::Wine.wines
-    @wines.each.with_index(1) do |w, i|
-      puts "#{i} #{w.winery} - #{w.variety} - #{w.location}."
-    end
+    @wines = HallidayWineList::Wine.all_wines
   end
 
 end
