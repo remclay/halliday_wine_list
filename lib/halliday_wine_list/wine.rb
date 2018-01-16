@@ -11,7 +11,7 @@ class HallidayWineList::Wine
 
   def self.print_wines
     @@all_wines.each.with_index(1) do |w, i|
-      puts "#{i} #{w.winery} - #{w.variety} - #{w.location}."
+      puts "#{i} #{w.winery} - #{w.variety} - #{w.location} - (#{w.category.name})."
     end
   end
 
@@ -31,5 +31,4 @@ class HallidayWineList::Wine
   def self.create_wines
     HallidayWineList::Scraper.new.scrape_wines
   end
-
 end

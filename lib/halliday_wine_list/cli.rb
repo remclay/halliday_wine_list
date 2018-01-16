@@ -12,7 +12,7 @@ class HallidayWineList::CLI
     puts "Categories:"
     list_categories
     puts ""
-    puts "Please choose a category (1-6) to view wines selected within that category or type exit."
+    puts "Choose a category (1-6) to view wines in that category, type list to see all wines or type exit."
     @input = gets.strip.downcase
     categories = HallidayWineList::Category.all_categories
     if users_choice >= 0 && users_choice < (categories.count)
@@ -22,6 +22,9 @@ class HallidayWineList::CLI
       next_steps
     elsif @input == "exit"
       goodbye
+    elsif @input == "list"
+      print_all_wines
+      next_steps
     else
       puts "Invalid input."
       choose_category
@@ -34,7 +37,6 @@ class HallidayWineList::CLI
     puts "1 View categories"
     puts "2 Exit"
     input = gets.strip.to_i
-    #binding.pry
     if input == 1
       choose_category
     elsif input == 2
@@ -66,11 +68,7 @@ class HallidayWineList::CLI
     HallidayWineList::Category.print_categories
   end
 
-  def collect_wines
-    HallidayWineList::Wine.create_wines
-  end
-
-  def list_wines
+  def print_all_wines
     HallidayWineList::Wine.print_wines
   end
 end
