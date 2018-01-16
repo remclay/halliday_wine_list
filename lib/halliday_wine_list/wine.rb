@@ -1,6 +1,7 @@
 class HallidayWineList::Wine
 
-  attr_reader :winery, :variety, :location, :category
+  attr_accessor :category
+  attr_reader :winery, :variety, :location
 
   @@all_wines = []
 
@@ -23,7 +24,7 @@ class HallidayWineList::Wine
     category.add_wine(self)
   end
 
-  def self.new_from_scraper(winery, variety, location)
+  def self.new_from_scraper(winery, variety, location, category)
     self.new(winery, variety, location, category)
   end
 
