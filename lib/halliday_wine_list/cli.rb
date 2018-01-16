@@ -4,7 +4,8 @@ class HallidayWineList::CLI
     puts "James Halliday Top 100 Wines 2017"
     puts "--------------------------------------------"
     puts "Retrieving 2017 Wines"
-    collect_categories
+    collect_data
+    binding.pry
     choose_category
   end
 
@@ -60,7 +61,7 @@ class HallidayWineList::CLI
     exit
   end
 
-  def collect_categories
+  def collect_data
     HallidayWineList::Category.create_categories
   end
 
