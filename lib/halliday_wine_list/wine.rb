@@ -16,20 +16,23 @@ class HallidayWineList::Wine
     @winery = winery
     @variety = variety
     @location = location
-    all_wines << self
+    @@all_wines << self
   end
 
-  def new_from_scraper(winery, variety, location)
+  def self.new_from_scraper(winery, variety, location)
     self.new(winery, variety, location)
   end
-  
-# MOVE TO SCRAPER CLASS
-  def self.wines
-  self.scrape_wines
+
+  def self.create_wines
+    #Call scraper.
+    scrape_wines
   end
+# MOVE TO SCRAPER CLASS
+#  def self.wines
+#  self.scrape_wines
+#  end
 
   def self.scrape_wines
-    wines = []
     category_url = HallidayWineList::Category.categories[Testa.users_choice].url
     url = "https://www.winecompanion.com.au" + "#{category_url}"
     doc = Nokogiri::HTML(open(url))
@@ -40,7 +43,6 @@ class HallidayWineList::Wine
       l = item.css("p.location").text
       HallidayWineList::Wine.new_from_scraper(w, v, l)
     end
-    #wines
   end
 
 end
