@@ -9,10 +9,8 @@ class HallidayWineList::CLI
   def list_categories
     puts "--------------------------------------------"
     puts "2017 Categories"
-    @categories = HallidayWineList::Category.categories
-    @categories.each.with_index(1) do |c, i|
-      puts "#{i} - #{c.name}"
-    end
+    collect_categories
+    list_categories
     choose_category
   end
 
@@ -35,12 +33,19 @@ class HallidayWineList::CLI
 
   def users_choice
     i = @input.to_i - 1
-    #binding.pry
   end
   
   def goodbye
     puts "Goodbye. Please visit again soon."
     exit
+  end
+
+  def collect_categories
+    HallidayWineList::Category.create_categories
+  end
+
+  def list_categories
+    HallidayWineList::Category.all_categories
   end
   
   def collect_wines
