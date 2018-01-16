@@ -25,24 +25,8 @@ class HallidayWineList::Wine
 
   def self.create_wines
     #Call scraper.
-    scrape_wines
-  end
-# MOVE TO SCRAPER CLASS
-#  def self.wines
-#  self.scrape_wines
-#  end
-
-  def self.scrape_wines
-    category_url = HallidayWineList::Category.categories[Testa.users_choice].url
-    url = "https://www.winecompanion.com.au" + "#{category_url}"
-    doc = Nokogiri::HTML(open(url))
-    doc.css("div.clearfix ul.listing-items div.info").each do |item|
-      #w = HallidayWineList::Wine.new()
-      w = item.css("p.winery").text
-      v = item.css("p.variety").text
-      l = item.css("p.location").text
-      HallidayWineList::Wine.new_from_scraper(w, v, l)
-    end
+    HallidayWineList::Scraper.new.scrape_wines
+    
   end
 
 end
