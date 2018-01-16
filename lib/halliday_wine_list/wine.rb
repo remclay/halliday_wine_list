@@ -8,13 +8,14 @@ class HallidayWineList::Wine
 
   def self.scrape_wines
     wines = []
-binding.pry
-    url = HallidayWineList::Category.categories[Testa.users_choice].url
-    doc = Nokogiri::HTML(open("url"))
-    doc.css("").each do |item|
+    category_url = HallidayWineList::Category.categories[Testa.users_choice].url
+    url = "https://www.winecompanion.com.au" + "#{category_url}"
+    doc = Nokogiri::HTML(open(url))
+    doc.css("div.clearfix ul.listing-items div.info").each do |item|
       w = self.new
-      w.name = item.css("a").text
-      w.url = item.css("a").attr("href").value
+      w.winery = item.css("p.winery").text
+      w.variety = item.css("p.variety").text
+      w.location = item.css("p.location").text
       wines << w
     end
     wines
