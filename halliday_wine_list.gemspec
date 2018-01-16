@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Remmy Clay'"]
   spec.email         = ["'remmy.lauren@gmail.com'"]
 
-  spec.summary       = "A gem that displays the relevant categories and wines selected in the Halliday Top 100 Wines of 2017 list."
+  spec.summary       = "A gem that displays the Halliday Top 100 Wines of 2017, divided into six categories."
   #spec.description   = {Write a longer description or delete this line.}
   spec.homepage      = "https://github.com/remclay/halliday_wine_list"
   #Update to gem's website or public repo URL here.
