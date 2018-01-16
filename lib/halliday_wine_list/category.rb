@@ -15,6 +15,7 @@ class HallidayWineList::Category
   end
 
   def initialize(name= "N/A", url= "N/A")
+    @wines = []
     @name = name
     @url = url
     @@all_categories << self
@@ -26,6 +27,10 @@ class HallidayWineList::Category
 
   def self.create_categories
     HallidayWineList::Scraper.new.scrape_categories
+  end
+
+  def add_wine(wine)
+    @wines << wine
   end
 
 end

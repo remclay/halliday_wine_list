@@ -14,15 +14,17 @@ class HallidayWineList::Wine
     end
   end
 
-  def initialize(winery= "N/A", variety= "N/A", location= "N/A")
+  def initialize(winery= "N/A", variety= "N/A", location= "N/A", category)
     @winery = winery
     @variety = variety
     @location = location
     @@all_wines << self
+    self.category = category
+    category.add_wine(self)
   end
 
   def self.new_from_scraper(winery, variety, location)
-    self.new(winery, variety, location)
+    self.new(winery, variety, location, category)
   end
 
   def self.create_wines
