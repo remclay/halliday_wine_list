@@ -3,7 +3,7 @@ class HallidayWineList::Category
   attr_accessor :name, :url
 
   @@all_categories = []
-  
+
   def self.all_categories
     @@all_categories
   end
@@ -11,7 +11,6 @@ class HallidayWineList::Category
   def self.print_categories
     @@all_categories.each.with_index(1) do |c, i|
       puts "#{i} - #{c.name}"
-      puts "--------------------------------------------"
     end
   end
 
