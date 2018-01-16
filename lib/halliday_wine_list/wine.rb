@@ -1,12 +1,14 @@
 class HallidayWineList::Wine
 
-  attr_accessor :winery, :variety, :location
-
-#Keep track of all wines, print out list of wines.
+  attr_reader :winery, :variety, :location, :category
 
   @@all_wines = []
 
   def self.all_wines
+    @@all
+  end
+
+  def self.print_wines
     @@all_wines.each.with_index(1) do |w, i|
       puts "#{i} #{w.winery} - #{w.variety} - #{w.location}."
     end
@@ -24,9 +26,7 @@ class HallidayWineList::Wine
   end
 
   def self.create_wines
-    #Call scraper.
     HallidayWineList::Scraper.new.scrape_wines
-    
   end
 
 end

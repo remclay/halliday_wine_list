@@ -33,7 +33,7 @@ class HallidayWineList::CLI
     puts "1 View categories"
     puts "2 Exit"
     input = gets.strip.to_i
-    binding.pry
+    #binding.pry
     if input == 1
       choose_category
     elsif input == 2
@@ -71,6 +71,6 @@ class HallidayWineList::CLI
   end
 
   def list_wines
-    HallidayWineList::Wine.all_wines
+    HallidayWineList::Wine.print_wines
   end
 end
