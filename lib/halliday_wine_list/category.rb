@@ -33,4 +33,10 @@ class HallidayWineList::Category
     @wines << wine
   end
 
+  def print_wines
+    @wines.each.with_index(1) do |w, i|
+      puts "#{i} #{w.winery} - #{w.variety} - #{w.location}."
+    end
+  end
+
 end

@@ -6,7 +6,7 @@ class HallidayWineList::Wine
   @@all_wines = []
 
   def self.all_wines
-    @@all
+    @@all_wines
   end
 
   def self.print_wines

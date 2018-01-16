@@ -3,12 +3,13 @@ class HallidayWineList::CLI
   def start
     puts "James Halliday Top 100 Wines 2017"
     puts "--------------------------------------------"
-    puts "2017 Categories"
+    puts "Retrieving 2017 Wines"
     collect_categories
     choose_category
   end
 
   def choose_category
+    puts "Categories:"
     list_categories
     puts ""
     puts "Please choose a category (1-6) to view wines selected within that category or type exit."
@@ -45,8 +46,7 @@ class HallidayWineList::CLI
   end
 
   def reveal_wines
-    collect_wines
-    list_wines
+    HallidayWineList::Category.all_categories[users_choice].print_wines
   end
 
   def users_choice
