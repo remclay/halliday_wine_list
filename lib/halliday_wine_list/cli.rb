@@ -1,18 +1,21 @@
 class HallidayWineList::CLI
 
   def start
-    puts "James Halliday Top 100 Wines 2017"
+    puts ""
+    puts "James Halliday Top Wines 2017"
     puts "--------------------------------------------"
-    puts "Retrieving 2017 Wines"
+    puts "Retrieving all Reds and Whites from the 2017 Top 100 Wines.."
     collect_data
     choose_category
   end
 
   def choose_category
+    puts ""
     puts "Categories:"
     list_categories
     puts ""
-    puts "Choose a category (1-6) to view wines in that category, type list to see all wines or type exit."
+    puts "Choose a category (1-4) to view wines in that category."
+    puts "Type list to see all wines or type exit."
     @input = gets.strip.downcase
     categories = HallidayWineList::Category.all_categories
     if users_choice >= 0 && users_choice < (categories.count)
