@@ -27,8 +27,4 @@ class HallidayWineList::Wine
   def self.new_from_scraper(winery, variety, location, category)
     self.new(winery, variety, location, category)
   end
-
-  def self.create_wines
-    HallidayWineList::Scraper.new.scrape_wines
-  end
 end

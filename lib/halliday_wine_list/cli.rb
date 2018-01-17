@@ -5,7 +5,6 @@ class HallidayWineList::CLI
     puts "--------------------------------------------"
     puts "Retrieving 2017 Wines"
     collect_data
-    binding.pry
     choose_category
   end
 
