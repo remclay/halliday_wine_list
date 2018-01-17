@@ -5,10 +5,9 @@ class HallidayWineList::Scraper
     doc.css("div.clearfix.bestofbest ul.listing-items h3.sub-title").each do |item|
       name = item.css("a").text
       @url = item.css("a").attr("href").value
-      @current_category = HallidayWineList::Category.new_from_scraper(name, @url)
-      if name.include?("Champagne")
-        scrape_champagne
-      else scrape_wines
+      if name.include?("red") || name.include?("white")
+        @current_category = HallidayWineList::Category.new_from_scraper(name, @url)
+        scrape_wines
       end
     end
   end
@@ -24,18 +23,4 @@ class HallidayWineList::Scraper
       HallidayWineList::Wine.new_from_scraper(w, v, l, c)
     end
   end
-
-  def scrape_champagne
-    category_url = "https://www.winecompanion.com.au" + "#{@url}"
-    doc = Nokogiri::HTML(open(category_url))
-    doc.css("div.clearfix div#best-of-top").each do |item|
-      binding.pry
-      name = item.text
-      #rating =
-      #price =
-      #c = @current_category
-      #HallidayWineList::Wine.new_from_scraper(w, v, l, c)
-    end
-  end
-
 end
