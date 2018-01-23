@@ -29,10 +29,19 @@ class HallidayWineList::Wine
   end
 
   def self.print_regions
-    locations = @@all_wines.collect {|wine| wine.location}
-    locations.uniq.each_with_index(1) do |location, i|
+    @locations = @@all_wines.collect {|wine| wine.location}.uniq
+    @locations.each.with_index(1) do |location, i|
       puts "#{i} - #{location}"
     end
   end
+
+  #def self.print_by_region(location_input)
+    #puts @locations[location_input - 1]
+  #  @@all_wines.collect do |wine|
+  #    if wine.location == location_input
+  #      wine.name
+  #    end
+  #  end
+  #end
 
 end
