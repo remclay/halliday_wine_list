@@ -34,6 +34,7 @@ class HallidayWineList::CLI
 
   def next_steps
     puts ""
+    puts "--------------------------------------------"
     puts "What would you like to do next? (1-3)"
     puts "1 View categories"
     puts "2 List all wines"
