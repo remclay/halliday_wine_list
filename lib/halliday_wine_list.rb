@@ -1,5 +1,1 @@
-
-module HallidayWineList
-  # Your code goes here...
-end
-# move this module into environment?
+require_relative '../config/environment'
