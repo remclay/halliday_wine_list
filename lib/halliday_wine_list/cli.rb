@@ -11,26 +11,30 @@ class HallidayWineList::CLI
 
   def choose_category
     categories = HallidayWineList::Category.all_categories
-    puts ""
-    puts "Categories:"
-    list_categories
-    puts ""
-    puts "Choose a category (1-#{categories.count}) to view wines in that category, type 'list' to see all wines or type exit to leave."
-    @input = gets.strip.downcase
-    if users_choice >= 0 && users_choice < (categories.count)
-      puts "Showing: #{categories[users_choice].name}."
-      puts "--------------------------------------------"
-      print_category_wines
-    elsif @input == "exit"
-      goodbye
-    elsif @input == "list"
-      print_all_wines
+    if categories.count == 0
+      site_error
     else
       puts ""
-      puts "Sorry, that input is not valid. Here are your options again."
-      choose_category
+      puts "Categories:"
+      list_categories
+      puts ""
+      puts "Choose a category (1-#{categories.count}) to view wines in that category, type 'list' to see all wines or type exit to leave."
+      @input = gets.strip.downcase
+      if users_choice >= 0 && users_choice < (categories.count)
+        puts "Showing: #{categories[users_choice].name}."
+        puts "--------------------------------------------"
+        print_category_wines
+      elsif @input == "exit"
+        goodbye
+      elsif @input == "list"
+        print_all_wines
+      else
+        puts ""
+        puts "Sorry, that input is not valid. Here are your options again."
+        choose_category
+      end
+      next_steps
     end
-    next_steps
   end
 
   def next_steps
@@ -52,6 +56,12 @@ class HallidayWineList::CLI
       puts "Sorry, I don't recognise that input. Please enter a valid input (1-3)."
       next_steps
     end
+  end
+
+  def site_error
+    puts ""
+    puts "We're sorry. There seems to be an issue with the James Halliday Top Wines 2017 website at this time. Please check back again later."
+    exit
   end
 
   def print_category_wines
