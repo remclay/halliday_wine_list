@@ -26,7 +26,8 @@ class HallidayWineList::CLI
     elsif @input == "list"
       print_all_wines
     else
-      puts "Sorry, I don't recognise that input. Please enter a valid input."
+      puts ""
+      puts "Sorry, that input is not valid. Here are your options again."
       choose_category
     end
     next_steps
