@@ -15,7 +15,7 @@ class HallidayWineList::Wine
     end
   end
 
-  def initialize(winery= "N/A", variety= "N/A", location= "N/A", category)
+  def initialize(winery= nil, variety= nil, location= nil, category)
     @winery = winery
     @variety = variety
     @location = location
