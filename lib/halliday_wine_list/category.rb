@@ -1,6 +1,6 @@
 class HallidayWineList::Category
 
-  attr_accessor :name, :url
+  attr_reader :name, :url
 
   @@all_categories = []
 
@@ -14,7 +14,7 @@ class HallidayWineList::Category
     end
   end
 
-  def initialize(name= "N/A", url= "N/A")
+  def initialize(name= nil, url= nil)
     @wines = []
     @name = name
     @url = url
