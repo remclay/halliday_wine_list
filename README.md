@@ -1,8 +1,6 @@
 # HallidayWineList
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/halliday_wine_list`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This Ruby gem provides a CLI to view the red and white wines selected as part of the James Halliday Top 100 Wines of 2017. Users can select to view all wines, or filter wines by category, region or variety.
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Run halliday_wine_list after installing the gem
 
 ## Development
 
