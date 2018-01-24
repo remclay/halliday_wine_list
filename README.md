@@ -1,6 +1,6 @@
 # HallidayWineList
 
-This Ruby gem provides a CLI to view the red and white wines selected as part of the James Halliday Top 100 Wines of 2017. Users can select to view all wines, or filter wines by category, region or variety.
+This Ruby gem provides a CLI to view the red and white wines selected as part of the James Halliday Top 100 Wines of 2017. Users can select to view all wines, or view wines via category.
 
 ## Installation
 
