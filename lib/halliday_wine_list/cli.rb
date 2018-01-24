@@ -2,9 +2,9 @@ class HallidayWineList::CLI
 
   def start
     puts ""
-    puts "James Halliday Top Wines 2017"
+    puts "James Halliday's Top Wines for 2017"
     puts "--------------------------------------------"
-    puts "Retrieving all Reds and Whites from the 2017 Top 100 Wines.."
+    puts "Retrieving all red and white varieties from the 2017 selection.."
     collect_data
     choose_category
   end
@@ -18,15 +18,19 @@ class HallidayWineList::CLI
       puts "Categories:"
       list_categories
       puts ""
-      puts "Choose a category (1-#{categories.count}) to view wines in that category, type 'list' to see all wines or type exit to leave."
+      puts "Select a category (1-#{categories.count}) to view the wines from that category, type 'list' to see all wines or type exit to leave."
       @input = gets.strip.downcase
       if users_choice >= 0 && users_choice < (categories.count)
-        puts "Showing: #{categories[users_choice].name}."
+        puts ""
+        puts "Current selection: #{categories[users_choice].name}."
         puts "--------------------------------------------"
         print_category_wines
       elsif @input == "exit"
         goodbye
       elsif @input == "list"
+        puts ""
+        puts "Current selection: all red and white wines from the 2017 selection."
+        puts "--------------------------------------------"
         print_all_wines
       else
         puts ""
@@ -53,7 +57,8 @@ class HallidayWineList::CLI
     elsif input == 3
       goodbye
     else
-      puts "Sorry, I don't recognise that input. Please enter a valid input (1-3)."
+      puts ""
+      puts "Sorry, that input is not valid. Please enter a valid input (1-3)."
       next_steps
     end
   end
@@ -73,7 +78,7 @@ class HallidayWineList::CLI
   end
 
   def goodbye
-    puts "Goodbye. Please visit again soon."
+    puts "We hope you found a wine to your liking! Enjoy often, enjoy responsibly."
     exit
   end
 
