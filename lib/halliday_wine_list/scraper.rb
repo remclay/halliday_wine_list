@@ -16,11 +16,11 @@ class HallidayWineList::Scraper
     category_url = "https://www.winecompanion.com.au" + "#{@url}"
     doc = Nokogiri::HTML(open(category_url))
     doc.css("div.clearfix ul.listing-items div.info").each do |item|
-      w = item.css("p.winery").text
-      v = item.css("p.variety").text
-      l = item.css("p.location").text
-      c = @current_category
-      HallidayWineList::Wine.new_from_scraper(w, v, l, c)
+      winery = item.css("p.winery").text
+      variety = item.css("p.variety").text
+      location = item.css("p.location").text
+      category = @current_category
+      HallidayWineList::Wine.new_from_scraper(wine, variety, locatin, category)
     end
   end
 end

@@ -9,9 +9,7 @@ class HallidayWineList::Category
   end
 
   def self.print_categories
-    @@all_categories.each.with_index(1) do |c, i|
-      puts "#{i} - #{c.name}"
-    end
+    @@all_categories.each.with_index(1) {|c, i| puts "#{i} - #{c.name}"}
   end
 
   def initialize(name= nil, url= nil)
@@ -34,9 +32,6 @@ class HallidayWineList::Category
   end
 
   def print_wines
-    @wines.each.with_index(1) do |w, i|
-      puts "#{i} #{w.winery} - #{w.variety} - #{w.location}."
-    end
+    @wines.each.with_index(1) {|w, i| puts "#{i} #{w.winery} - #{w.variety} - #{w.location}."}
   end
-
 end
