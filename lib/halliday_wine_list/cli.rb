@@ -44,21 +44,17 @@ class HallidayWineList::CLI
   def next_steps
     puts ""
     puts "--------------------------------------------"
-    puts "What would you like to do next? (1-3)"
-    puts "1 View categories"
-    puts "2 List all wines"
-    puts "3 Exit"
+    puts "What would you like to do next? (1-2)"
+    puts "1 View main menu"
+    puts "2 Exit"
     input = gets.strip.to_i
     if input == 1
       choose_category
     elsif input == 2
-      print_all_wines
-      next_steps
-    elsif input == 3
       goodbye
     else
       puts ""
-      puts "Sorry, that input is not valid. Please enter a valid input (1-3)."
+      puts "Sorry, that input is not valid. Please enter a valid input (1-2)."
       next_steps
     end
   end

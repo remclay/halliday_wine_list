@@ -20,7 +20,7 @@ class HallidayWineList::Scraper
       variety = item.css("p.variety").text
       location = item.css("p.location").text
       category = @current_category
-      HallidayWineList::Wine.new_from_scraper(wine, variety, locatin, category)
+      HallidayWineList::Wine.new_from_scraper(winery, variety, location, category)
     end
   end
 end
